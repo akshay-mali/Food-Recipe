@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+}
+
+/* h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+} */
+
+main{
+    width: 60%;
+    background-color: #fafbfe;
+}
+#burg-menu{
+    display: none;
+    z-index: 10;
+}
+header{
+    margin: 32px 6%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1{
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: inline;
+}
+
+header form {
+    display: flex;
+}
+
+header form input{
+    width: 260px;
+    border: 1px solid #aaaaaa;
+    outline: none;
+    font-size: 20px;
+    line-height: 32px;
+    border-radius: 12px 0 0 12px;
+}
+header form button{
+    height: 36px;
+    width: 80px;
+    border: none;
+    background-color: #b047ec;
+    color: white;
+    border-radius: 0 12px 12px 0;
+    font-size: 16px;
+}
+
+.sliding-window{
+    display: flex;
+    width: 200%;
+    transition: 0.5s ease-in-out;
+}
+.left-screen{
+    width: 50%;
+}
+.right-screen{
+    width: 50%;
+    height: 100px;
+    border-bottom: 1px solid #ddd;
+}
+.search-info{
+    margin: 0 6%;
+}
+.search-info i{
+    cursor: pointer;
+}
+.search-box{
+    margin: 16px 0 ;
+    padding-left: 32px;
+    display: flex;
+}
+.search-box span{
+    font-size: 20px;
+    margin-right: 8px;
+}
+.search-box input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #666;
+    padding: 0px 8px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0 6%;
+    padding: 0;
+    display: flex;
+}
+li{
+    margin-right: 48px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.selected{
+    font-weight: 600;
+    position: relative;
+    color: rgb(52, 228, 134);
+}
+.selected::before{
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    height: 6px;
+    width: 6px;
+    transform: translate(-50%, 0);
+    background-color: rgb(52, 228, 134);
+    border-radius: 50%;
+}
+
+.container{
+    margin: 42px 6%;
+    display: grid;
+    column-gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.card{
+    margin-top: 32px;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    display: block;
+    break-inside: avoid;
+}
+.card .image__container{
+    height: 200px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0px 4px 16px 0px rgba(69, 170, 200, 0.16);
+    overflow: hidden;
+    background-color: #222;
+}
+.card .image{
+    width: 100%;
+    height: 200px;
+    background-color: #dddddd;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+
+.card .image:hover{
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.card p{
+    margin: 8px 0;
+    font-weight: 500;
+    width: 80%;
+}
+
+aside{
+    height: 100vh;
+    width: 40%;
+    position: fixed;
+    top: 0;
+    left: 60%;
+    background-color: #aaa;
+    min-width: 500px;
+}
+#recipe-back-btn{
+    display: none;
+    padding: 16px 0;
+}
+.recipe-info{
+    padding: 24px;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: -1px 0 9px 0 rgba(0, 0, 100, 0.08);
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.recipe-image{
+    height: 360px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #999999;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.recipe-info h1{
+    margin: 8px 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+}
+.recipe-prop{
+    margin-top:16px;
+    margin-right: 72px;
+    display: inline-block;
+}
+.ingredient-prop{
+    margin-top:16px;
+    display: inline-block;
+}
+.instructions-prop{
+    margin-top:16px;
+    display: inline-block;
+}
+.prop-name{
+    color: #999999;
+    margin: 0;
+    font-size: 14px;
+}
+.prop-value{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    color: #222;
+    margin: 0;
+}
+.ingredient {
+    padding: 0 4px;
+}
+.instruction-list{
+    margin: 8px 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.instruction-list li {
+    margin: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding-left: 32px;
+    position: relative;
+    padding-right: 12px;
+    color: #222;
+}
+.instruction-list li span {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: rgb(52, 228, 134);
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 1153px) {
+
+    main{
+        width: 100%;
+    }
+
+    aside{
+        width: 100%;
+        left: 0;
+        display: none;
+    }
+    #recipe-back-btn{
+        display: block
+    }
+}
+
+@media only screen and (max-width: 698px){
+    #burg-menu{
+        display: inline;
+        color: #222;
+        line-height: 36px;
+        font-size: 32px;
+        margin-right: 8px;cursor: pointer;
+
+    }
+    header{
+        margin: 16px 6%
+    }
+    #navbar{
+        margin: 0;
+        padding: 120px 8px;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 80%;
+        max-width: 400px;
+        background-color: #fff;
+        flex-direction: column;
+    }
+    #navbar.show{
+        left: 0;
+    }
+    #navbar li{
+        display: block;
+        height: 64px;
+        width: 100%;
+        margin: 8px 0;
+        border-radius: 8px;
+        text-align: center;
+        line-height: 64px;
+        font-size: 20px;
+        color: #222;
+    }
+    .selected{
+        background-color: rgb(52, 228, 134);
+        color: #fff;
+    }
+    .selected::before{
+        display: none;
+    }
+    header form {
+        display: flex;
+        width: 100%;
+    }
+    header form input{
+        width: 75%;
+    }
+    header form button{
+        width: 25%;
+    }
+    .container{
+        margin: 0 6%;
+    }
+}

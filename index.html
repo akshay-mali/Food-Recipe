@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recipe</title>
+    <link rel="stylesheet" href="main.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <main id="main-window">
+        <header>
+            <i id="burg-menu" class='bx bx-menu-alt-left' onclick="toggleMenu()"></i>
+            <h1>Foodies</h1>
+            
+            <i class='bx bx-search bx-tada-hover' id="go-to-search" onclick="openSearch()" style="color: #333;font-size: 28px;"></i>
+        </header>
+        <div class="sliding-window" id="sliding-window">
+            <div class="left-screen" id="left-screen">
+                <ul id="navbar">
+                    <li class="link selected" id="breakfast">Breakfast</li>
+                    <li class="link" id="snack">Snacks</li>
+                    <li class="link" id="main_course">MainCourse</li>
+                    <li class="link" id="dessert">Dessert</li>
+                    <li class="link" id="drink">Breverage</li>
+                </ul>
+                <div class="container" id='container'>
+                </div>
+            </div>
+            <div class="right-screen" id="right-screen">
+                <div class="search-info">
+                    <i class='bx bx-arrow-back bx-sm' onclick="closeSearch()"></i>
+                    <div class="search-box">
+                        <span>Search querry : </span>
+                        <input type="text" id="searchInput">
+                        <i class='bx bx-search bx-tada-hover bx-sm' id="search-btn" onclick="handleClick()"></i>
+                    </div>
+                </div>
+                <div class="container" id='search-container'>
+                </div>
+            </div>
+        </div>
+    </main>
+    <aside id="aside-window">
+        <div class="recipe-info">
+            <i class='bx bx-arrow-back bx-sm' id="recipe-back-btn"></i>
+            <img class="recipe-image" id="recipe-image"></img>
+            <h1 id="recipe-title" ></h1>
+            <div>
+                <div class="recipe-prop">
+                    <p class="prop-name">Servings</p>
+                    <p class="prop-value" id="recipe-serving"></p>
+                </div>
+                <div class="recipe-prop">
+                    <p class="prop-name">Time</p>
+                    <p class="prop-value" id="recipe-time"></p>
+                </div>
+                <div class="recipe-prop">
+                    <p class="prop-name">Nutrition Value</p>
+                    <p class="prop-value" id="recipe-nutrition"></p>
+                </div>
+            </div>
+            <div class="ingredient-prop">
+                <p class="prop-name">Ingredients</p>
+                <p class="prop-value" id="recipe-ingredients"></p>
+            </div>
+            <div class="instructions-prop">
+                <p class="prop-name">Instructions</p>
+                <ul class="instruction-list" id="recipe-instructions">
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
