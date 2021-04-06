@@ -31,8 +31,7 @@
                 <div class="search-info">
                     <i class='bx bx-arrow-back bx-sm' onclick="closeSearch()"></i>
                     <div class="search-box">
-                        <span>Search querry : </span>
-                        <input type="text" id="searchInput">
+                        <input type="text" id="searchInput" placeholder="Search Query">
                         <i class='bx bx-search bx-tada-hover bx-sm' id="search-btn" onclick="handleClick()"></i>
                     </div>
                 </div>
@@ -43,7 +42,7 @@
     </main>
     <aside id="aside-window">
         <div class="recipe-info">
-            <i class='bx bx-arrow-back bx-sm' id="recipe-back-btn"></i>
+            <i class='bx bx-arrow-back bx-sm' id="recipe-back-btn" onclick="closeRecipeWindow()"></i>
             <img class="recipe-image" id="recipe-image"></img>
             <h1 id="recipe-title" ></h1>
             <div>

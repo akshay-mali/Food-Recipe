@@ -1,7 +1,5 @@
-const API_KEY = '28eb551a6f534999bc5339d898b8940f';
-
-
 const container = document.getElementById('container');
+const menuBtn = document.getElementById('burg-menu');
 const links = document.querySelectorAll('.link');
 const searchInput = document.getElementById('searchInput');
 const searchContainer = document.getElementById('search-container');
@@ -15,6 +13,7 @@ const recipeImage = document.getElementById('recipe-image');
 const recipeNutrition = document.getElementById('recipe-nutrition');
 const recipeIngredients = document.getElementById('recipe-ingredients');
 const recipeInstructions = document.getElementById('recipe-instructions');
+const recipeBackBtn = document.getElementById('recipe-back-btn');
 
 
 links.forEach(link => {
@@ -25,6 +24,7 @@ links.forEach(link => {
     e.target.classList.add('selected');
     let url = 'https://api.spoonacular.com/recipes/complexSearch?type=' + e.target.id + '&apiKey='+ API_KEY +'&offset=5&number=15';
     getRecipeList(url);
+    navbar.classList.remove('show')
   })
 })
 
@@ -38,6 +38,13 @@ function init () {
   let url = 'https://api.spoonacular.com/recipes/complexSearch?type=breakfast&apiKey='+ API_KEY +'&offset=5&number=15';
   getRecipeList(url);
 }
+
+window.addEventListener("resize", () => {
+  if(window.innerWidth > 1153){
+    menuBtn.style.display = 'none';
+    document.getElementById('aside-window').style.display = 'block';
+  }
+});
 
 const getRecipeList = (url) => {
   fetch(url)
@@ -58,7 +65,7 @@ function handleClick() {
       .then(data => {
         const result = data.results;
         displayResult(result, searchContainer);
-        console.log(result);
+        // console.log(result);
       })
       .catch( error => {
         console.log(error);
@@ -108,8 +115,8 @@ const displayResult = (result, displayContainer) => {
             console.log(error);
           });
   
+        menuBtn.style.display = 'none';
         document.getElementById('aside-window').style.display = 'block';
-        // document.getElementById('main-window').style.display = 'none';
       })
     })
   
@@ -146,16 +153,30 @@ const displayResult = (result, displayContainer) => {
 const slidigWindow = document.getElementById('sliding-window');
 
 function toggleMenu() {
-  navbar.style.display = (navbar.style.display === "none")? "flex" : "none";
+  navbar.classList.toggle('show');
 }
+
+isSearching = false;
 
 function openSearch(){
   slidigWindow.style.transform = 'translate(-50%, 0)';
   goToSearch.style.display = 'none';
-  // console.log("clickeds");
+  menuBtn.style.display = 'none';
+  isSearching = true;
 }
 
 function closeSearch(){
   slidigWindow.style.transform = 'translate(0, 0)';
   goToSearch.style.display = 'block';
+  menuBtn.style.display = 'block';
+  isSearching = false;
 }
+
+function closeRecipeWindow(){
+  if(window.innerWidth < 1153 && !isSearching){
+    menuBtn.style.display = 'block';
+  }
+  document.getElementById('aside-window').style.display = 'none';
+}
+
+const API_KEY = '28eb551a6f534999bc5339d898b8940f';
