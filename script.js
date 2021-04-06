@@ -168,7 +168,9 @@ function openSearch(){
 function closeSearch(){
   slidigWindow.style.transform = 'translate(0, 0)';
   goToSearch.style.display = 'block';
-  menuBtn.style.display = 'block';
+  if(window.innerWidth < 1153){
+    menuBtn.style.display = 'block';
+  }
   isSearching = false;
 }
 
