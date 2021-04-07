@@ -48,7 +48,14 @@ window.addEventListener("resize", () => {
 
 const getRecipeList = (url) => {
   fetch(url)
-    .then(response => response.json())
+    .then(response => {
+      if (response.status >= 200 && response.status <= 299) {
+        return response.json();
+      } else {
+        container.innerHTML = "<p style='text-align:center;margin: 20px auto;font-size: 20px'> Sorry, daily api request limit reached.... </p>"
+        throw Error(response.statusText);
+      }
+    })
     .then(data => {
       const result = data.results;
       displayResult(result, container);

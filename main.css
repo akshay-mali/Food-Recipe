@@ -6,6 +6,7 @@ body{
     display: flex;
     max-width: 1600px;
     margin: 0 auto;
+    transform: translate(0);
 }
 
 /* h1, h2, h3, h4, h5, h6, p{
@@ -294,19 +295,21 @@ aside{
         margin: 16px 6%
     }
     #navbar{
-        margin: 0;
-        padding: 120px 8px;
+        margin: 0 auto;
+        padding: 40px 8px;
         position: fixed;
-        top: 0;
-        left: -100%;
-        height: 100vh;
-        width: 80%;
-        max-width: 400px;
+        top: -100%;
+        left: 2%;
+        width: 96%;
         background-color: #fff;
         flex-direction: column;
+        transition: .3s ease-in-out;
+        box-sizing: border-box;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(0, 0, 100, 0.16) ;
     }
     #navbar.show{
-        left: 0;
+        top: 100px;
     }
     #navbar li{
         display: block;
