@@ -6,7 +6,6 @@ body{
     display: flex;
     max-width: 1600px;
     margin: 0 auto;
-    transform: translate(0);
 }
 
 /* h1, h2, h3, h4, h5, h6, p{
@@ -344,5 +343,14 @@ aside{
     }
     .card{
         max-width: 100%;
+    }
+}
+
+@media screen and (min-width : 1640px){
+    body{
+	transform: translate(0);
+    }
+    aside{
+	height: auto;
     }
 }
